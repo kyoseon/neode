@@ -1,4 +1,4 @@
-vim.o.mouse = 'a'
+vim.o.mouse = "a"
 vim.o.clipboard = "unnamedplus"
 
 vim.o.autoindent = true
@@ -8,10 +8,10 @@ vim.o.cursorcolumn = true
 vim.o.expandtab = false
 
 vim.opt.listchars = {
-	tab      = '· ',
-	trail    = '·',
-	extends  = '>',
-	precedes = '<'
+	tab = "· ",
+	trail = "·",
+	extends = ">",
+	precedes = "<",
 }
 vim.o.list = true
 
@@ -25,7 +25,7 @@ vim.o.shiftwidth = 3
 vim.o.bg = "dark"
 
 vim.wo.number = true
-vim.wo.signcolumn = 'yes'
+vim.wo.signcolumn = "yes"
 
 --[=[
  <C-A>,<C-X>: counter
