@@ -11,7 +11,7 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"lua_ls",
-					--"rust_analyzer",
+					"yamlls",
 				},
 			})
 		end,
@@ -25,11 +25,16 @@ return {
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
 			})
-			--[[
-			lspconfig.rust_analyzer.setup({
+			lspconfig.yamlls.setup({
 				capabilities = capabilities,
+				settings = {
+					yaml = {
+						schemas = {
+						},
+					},
+				},
 			})
-			--]]
+
 			vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, {})
 			vim.keymap.set({ "n", "v" }, "<leader>a", vim.lsp.buf.code_action, {})
 			vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, {})
