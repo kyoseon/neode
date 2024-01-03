@@ -24,9 +24,10 @@ return {
 					config = {
 						workspaces = {
 							techs = "~/Documents/notes/techs",
+							racing = "~/Documents/notes/racing",
 						},
 						default_workspace = "techs",
-						--index = "index.norg",
+						index = "index.norg",
 					},
 				},
 			},
