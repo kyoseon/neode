@@ -5,7 +5,11 @@ return {
 		require("neorg").setup({
 			load = {
 				["core.defaults"] = {},
-				["core.concealer"] = {},
+				["core.concealer"] = {
+					config = {
+						icon_preset = "basic",
+					},
+				},
 				["core.summary"] = {},
 				["core.ui"] = {},
 				--["core.ui.calendar"] = {},
@@ -32,9 +36,9 @@ return {
 				},
 			},
 		})
-		vim.wo.conceallevel = 2
 		vim.wo.concealcursor = "nv"
 
-		vim.keymap.set("n", "<leader>i", ':Neorg workspace ', {})
+		vim.keymap.set("n", "<leader>oi", ':Neorg workspace ', {})
+		vim.keymap.set("n", "<leader>ot", ':Neorg toggle-concealer<CR>', {})
 	end,
 }

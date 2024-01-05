@@ -25,7 +25,21 @@ vim.o.shiftwidth = 3
 vim.o.bg = "dark"
 
 vim.wo.number = true
-vim.wo.signcolumn = "yes"
+
+vim.g.vim_markdown_conceal = 2
+
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
+  pattern = {"*.norg"},
+  command = "set conceallevel=2",
+})
+
+vim.cmd("set signcolumn=yes")
+
+vim.diagnostic.config({
+	flat = { source = "always", border = border },
+	virtual_text = false,
+	sign = true
+})
 
 --[=[
  <C-A>,<C-X>: counter
