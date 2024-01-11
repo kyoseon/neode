@@ -6,7 +6,11 @@ return {
 		transparent.setup({
 			groups = { 'SignColumn' },
 			extra_groups = {},
-			exclude_groups = { 'CursorLine', 'CursorLineNr' },
+			exclude_groups = {
+				"NormalFloat",
+				"CursorLine",
+				"CursorLineNr",
+			},
 		})
 		vim.cmd(":TransparentEnable")
 

@@ -9,10 +9,13 @@ return {
 
 		gruvbox.setup({
 			terminal_colors = true,
-			transparent_mode = true,
 			overrides = {
 				SignColumn = { bg = transparent },
-				DapBreakpoint = { fg = "#78bcdd" },
+				DiagnosticSignError = { fg = "#cc241d", bg = transparent },
+				DiagnosticSignWarn = { fg = "#d79921", bg = transparent },
+				DiagnosticSignHint = { fg = "#689d6a", bg = transparent },
+				DiagnosticSignInfo = { fg = "#458588", bg = transparent },
+				DapBreakpoint = { fg = "#458588" },
 			},
 		})
 		vim.cmd("colorscheme gruvbox")

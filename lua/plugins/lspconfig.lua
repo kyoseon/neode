@@ -14,7 +14,7 @@ return {
 			settings = {
 				Lua = {
 					hint = { enable = true },
-				}
+				},
 			},
 		})
 
@@ -62,7 +62,7 @@ return {
 		--]]
 
 		vim.diagnostic.config({
-			virtual_text = true,
+			virtual_text = false,
 			sign = true,
 			update_in_insert = true,
 			underline = true,
