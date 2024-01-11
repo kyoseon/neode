@@ -23,46 +23,46 @@ return {
 				end,
 			},
 			mapping = {
-				['<C-p>'] = cmp.mapping.select_prev_item(),
-				['<C-n>'] = cmp.mapping.select_next_item(),
+				["<C-p>"] = cmp.mapping.select_prev_item(),
+				["<C-n>"] = cmp.mapping.select_next_item(),
 				-- Add tab support
-				['<S-Tab>'] = cmp.mapping.select_prev_item(),
-				['<Tab>'] = cmp.mapping.select_next_item(),
+				["<S-Tab>"] = cmp.mapping.select_prev_item(),
+				["<Tab>"] = cmp.mapping.select_next_item(),
 				--['<C-S-f>'] = cmp.mapping.scroll_docs(-4),
 				--['<C-f>'] = cmp.mapping.scroll_docs(4),
-				['<C-CR>'] = cmp.mapping.complete(),
-				['<C-e>'] = cmp.mapping.close(),
-				['<CR>'] = cmp.mapping.confirm({
+				["<C-CR>"] = cmp.mapping.complete(),
+				["<C-e>"] = cmp.mapping.close(),
+				["<CR>"] = cmp.mapping.confirm({
 					behavior = cmp.ConfirmBehavior.Insert,
 					select = true,
-				})
+				}),
 			},
 			sources = {
-				{ name = 'path' },
-				{ name = 'nvim_lsp'},
-				{ name = 'nvim_lsp_signature_help' },
-				{ name = 'nvim_lua'},
-				{ name = 'buffer'},
-				{ name = 'vsnip'},
-				{ name = 'calc' },
+				{ name = "path" },
+				{ name = "nvim_lsp" },
+				{ name = "nvim_lsp_signature_help" },
+				{ name = "nvim_lua" },
+				{ name = "buffer" },
+				{ name = "vsnip" },
+				{ name = "calc" },
 			},
 			window = {
 				completion = cmp.config.window.bordered(),
 				documentation = cmp.config.window.bordered(),
 			},
 			formatting = {
-				fields = { 'menu', 'abbr', 'kind' },
+				fields = { "menu", "abbr", "kind" },
 				format = function(entry, item)
 					local menu_icon = {
-						nvim_lsp = 'λ',
-						vsnip = '⋗',
-						buffer = 'Ω',
-						path = '🖫',
+						nvim_lsp = "λ",
+						vsnip = "⋗",
+						buffer = "Ω",
+						path = "🖫",
 					}
 					item.menu = menu_icon[entry.source.name]
 					return item
 				end,
 			},
 		})
-	end
+	end,
 }
