@@ -7,8 +7,7 @@ return {
 		"MunifTanjim/nui.nvim",
 	},
 	config = function()
-		--vim.keymap.set('n', '<leader>t', ':Neotree filesystem reveal left<CR>', {})
-		vim.keymap.set('n', '<F3>', ':Neotree toggle<CR>', {})
+		vim.keymap.set("n", "<F3>", ":Neotree toggle<CR>", {})
 
 		require("neo-tree").setup({
 			source_selector = {
@@ -19,5 +18,5 @@ return {
 			popup_border_style = "rounded",
 			enable_git_status = true,
 		})
-	end
+	end,
 }
