@@ -1,6 +1,6 @@
 return {
 	"nvim-neorg/neorg",
-	run = ":Neorg sync-parsers", -- This is the important bit!
+	build = ":Neorg sync-parsers", -- This is the important bit!
 	config = function()
 		require("neorg").setup({
 			load = {
@@ -40,5 +40,10 @@ return {
 
 		vim.keymap.set("n", "<leader>oi", ':Neorg workspace ', {})
 		vim.keymap.set("n", "<leader>ot", ':Neorg toggle-concealer<CR>', {})
+
+		vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+			pattern = { "*.norg" },
+			command = "set conceallevel=2",
+		})
 	end,
 }

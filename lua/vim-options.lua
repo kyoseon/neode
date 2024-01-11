@@ -1,45 +1,40 @@
-vim.o.mouse = "a"
-vim.o.clipboard = "unnamedplus"
+vim.opt.clipboard = "unnamedplus"
 
-vim.o.autoindent = true
-vim.o.bs = "indent,eol,start"
-vim.o.cursorline = true
-vim.o.cursorcolumn = true
-vim.o.expandtab = false
+vim.opt.autoindent = true
+vim.opt.bs = "indent,eol,start"
+vim.opt.cursorline = true
+vim.opt.cursorcolumn = true
+vim.opt.expandtab = false
 
+vim.opt.list = true
 vim.opt.listchars = {
 	tab = "· ",
 	trail = "·",
 	extends = ">",
 	precedes = "<",
 }
-vim.o.list = true
 
-vim.o.completeopt = "menu,noselect"
-vim.o.termguicolors = true
-vim.o.title = true
+--vim.opt.completeopt = { "menuone", "noselect", "noinsert" }
+vim.opt.completeopt = { "menuone", "noselect" }
+vim.opt.shortmess:append "c"
+vim.api.nvim_set_option('updatetime', 300)
+--vim.cmd([[
+--autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
+--]])
 
-vim.o.tabstop = 3
-vim.o.softtabstop = 3
-vim.o.shiftwidth = 3
-vim.o.bg = "dark"
+vim.opt.termguicolors = true
+vim.opt.title = true
 
-vim.wo.number = true
+vim.opt.tabstop = 3
+vim.opt.softtabstop = 3
+vim.opt.shiftwidth = 3
 
-vim.g.vim_markdown_conceal = 2
+vim.opt.number = true
+vim.opt.signcolumn = "yes"
 
-vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
-  pattern = {"*.norg"},
-  command = "set conceallevel=2",
-})
-
-vim.cmd("set signcolumn=yes")
-
-vim.diagnostic.config({
-	flat = { source = "always", border = border },
-	virtual_text = false,
-	sign = true
-})
+vim.g.loaded_node_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
 
 --[=[
  <C-A>,<C-X>: counter

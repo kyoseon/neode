@@ -1,4 +1,6 @@
 ---@diagnostic disable: undefined-global
+vim.loader.enable()
+
 require("vim-keymaps")
 require("vim-options")
 
@@ -18,6 +20,3 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins")
 
 vim.cmd("colorscheme gruvbox")
-
-vim.cmd("highlight NonText guifg=#ff0000")
-vim.cmd("highlight SpecialKey guifg=#ff0000")
