@@ -14,13 +14,9 @@ vim.opt.listchars = {
 	precedes = "<",
 }
 
---vim.opt.completeopt = { "menuone", "noselect", "noinsert" }
-vim.opt.completeopt = { "menuone", "noselect" }
-vim.opt.shortmess:append "c"
-vim.api.nvim_set_option('updatetime', 300)
---vim.cmd([[
---autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
---]])
+vim.opt.completeopt = { "menuone", "noselect", "noinsert" }
+vim.opt.shortmess:append("c")
+vim.api.nvim_set_option("updatetime", 300)
 
 vim.opt.termguicolors = true
 vim.opt.title = true
