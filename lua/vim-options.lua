@@ -3,7 +3,7 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.autoindent = true
 vim.opt.bs = "indent,eol,start"
 vim.opt.cursorline = true
-vim.opt.cursorcolumn = true
+--vim.opt.cursorcolumn = true
 vim.opt.expandtab = false
 
 vim.opt.list = true
@@ -12,6 +12,10 @@ vim.opt.listchars = {
 	trail = "·",
 	extends = ">",
 	precedes = "<",
+}
+
+vim.opt.fillchars = {
+	eob = "·",
 }
 
 vim.opt.completeopt = { "menuone", "noselect", "noinsert" }
@@ -33,6 +37,8 @@ vim.g.loaded_perl_provider = 0
 vim.g.loaded_ruby_provider = 0
 
 --[=[
+:checkhealth
+
  <C-A>,<C-X>: counter
  <C-N>, <C-P>: search in current file
  <C-X><C-F>: auto completion of path

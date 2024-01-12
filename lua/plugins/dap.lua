@@ -4,41 +4,64 @@ return {
 		"rcarriga/nvim-dap-ui",
 	},
 	config = function()
-		require("dapui").setup()
-
 		local dap, dapui = require("dap"), require("dapui")
 
-		local mason = require("mason-registry")
-		local extension_path = mason.get_package("codelldb"):get_install_path() .. "/extensions"
-		local codelldb_path = extension_path .. "adapter/codelldb"
-		local liblldb_path = extension_path .. "lldb/lib/liblldb.dylib"
+		dapui.setup()
 
-		dap.adapters.rust = {
+		dap.adapters.codelldb = {
 			type = "server",
+			name = "codelldb",
 			port = "${port}",
 			host = "127.0.0.1",
 			executable = {
-				command = codelldb_path,
-				args = { "--liblldb", liblldb_path, "--port", "${port}" },
+				command = '/ext/kyoseon/.local/share/nvim/mason/bin/codelldb',
+				args = { "--port", "${port}" },
 			},
 		}
 
-		dap.listeners.after.event_initialized["dapui_config"] = function()
+		dap.configurations.rust = {
+			{
+				name = "Launch file",
+				type = "codelldb",
+				request = "launch",
+				showDisassembly = "never",
+				program = function()
+					vim.fn.jobstart('cargo build')
+					return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug/", "file")
+				end,
+				cwd = "${workspaceFolder}",
+				stopOnEntry = false,
+				args = {},
+			}
+		}
+
+		dap.listeners.before.attach.dapui_config = function()
 			vim.cmd.Neotree({ "close" })
 			dapui.open()
 		end
-		dap.listeners.before.event_terminated["dapui_config"] = function()
-			vim.cmd.Neotree({ "filesystem", "reveal", "left" })
-			dapui.close()
+		dap.listeners.before.launch.dapui_config = function()
+			vim.cmd.Neotree({ "close" })
+			dapui.open()
 		end
-		dap.listeners.before.event_exited["dapui_config"] = function()
-			vim.cmd.Neotree({ "toggle" })
+		--dap.listeners.before.event_terminated.dapui_config = function()
+		--	dapui.close()
+		--end
+		dap.listeners.before.event_exited.dapui_config = function()
 			dapui.close()
 		end
 
-		vim.keymap.set("n", "<A-t>", ":DapToggleBreakpoint<CR>")
-		vim.keymap.set("n", "<A-x>", ":DapTerminate<CR>")
-		vim.keymap.set("n", "<A-c>", ":DapStepOver<CR>")
-		vim.keymap.set("n", "<A-r>", ":DapContinue<CR>")
+		vim.fn.sign_define("DapBreakpoint", {
+			text = "",
+			texthl = "DapBreakpoint",
+		})
+
+		vim.keymap.set("n", "<A-t>", dap.toggle_breakpoint, {})
+		vim.keymap.set("n", "<A-r>", function() dap.continue() end)
+		vim.keymap.set("n", "<A-n>", dap.step_over, {})
+		vim.keymap.set("n", "<A-i>", dap.step_into, {})
+		vim.keymap.set("n", "<A-o>", dap.step_out, {})
+		vim.keymap.set("n", "<A-x>", dap.terminate, {})
+		vim.keymap.set('n', "<A-l>", dap.run_last, {})
+		vim.keymap.set('n', '<A-f>', function() dapui.float_element('scopes', { enter = true }) end)
 	end,
 }
