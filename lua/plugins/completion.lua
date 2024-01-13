@@ -28,8 +28,8 @@ return {
 				-- Add tab support
 				["<S-Tab>"] = cmp.mapping.select_prev_item(),
 				["<Tab>"] = cmp.mapping.select_next_item(),
-				--['<C-S-f>'] = cmp.mapping.scroll_docs(-4),
-				--['<C-f>'] = cmp.mapping.scroll_docs(4),
+				['<C-S-f>'] = cmp.mapping.scroll_docs(-4),
+				['<C-f>'] = cmp.mapping.scroll_docs(4),
 				["<C-CR>"] = cmp.mapping.complete(),
 				["<C-e>"] = cmp.mapping.close(),
 				["<CR>"] = cmp.mapping.confirm({
@@ -55,9 +55,9 @@ return {
 				format = function(entry, item)
 					local menu_icon = {
 						nvim_lsp = "λ",
-						vsnip = "⋗",
-						buffer = "Ω",
-						path = "🖫",
+						vsnip = "",
+						buffer = "󰍛",
+						path = "",
 					}
 					item.menu = menu_icon[entry.source.name]
 					return item

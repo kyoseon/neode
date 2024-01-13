@@ -7,7 +7,10 @@ return {
 		"MunifTanjim/nui.nvim",
 	},
 	config = function()
-		vim.keymap.set("n", "<F3>", ":Neotree toggle<CR>", {})
+		vim.keymap.set("n", "<leader>ff", "<cmd>Neotree filesystem<CR>", {})
+		vim.keymap.set("n", "<leader>fg", "<cmd>Neotree git_status<CR>", {})
+		vim.keymap.set("n", "<leader>fb", "<cmd>Neotree float buffers<CR>", {})
+		vim.keymap.set("n", "<leader>fc", "<cmd>Neotree close<CR>", {})
 
 		require("neo-tree").setup({
 			source_selector = {

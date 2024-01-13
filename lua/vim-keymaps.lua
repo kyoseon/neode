@@ -1,11 +1,11 @@
 vim.g.mapleader = ","
 
-vim.keymap.set("n", "<leader>bn", ":bnext<CR>", {})
-vim.keymap.set("n", "<leader>bb", ":bprevious<CR>", {})
-vim.keymap.set("n", "<leader>bd", ":bdelete<CR>", {})
-vim.keymap.set("n", "<leader>bf", ":bdelete!<CR>", {})
-vim.keymap.set("n", "<leader>z" , ":qa<CR>", {})
-vim.keymap.set("n", "<leader>s" , ":w<CR>", {})
+vim.keymap.set("n", "<leader>n", "<cmd>bnext<CR>", {})
+vim.keymap.set("n", "<leader>b", "<cmd>bprevious<CR>", {})
+vim.keymap.set("n", "<leader>d", "<cmd>bdelete<CR>", {})
+vim.keymap.set("n", "<leader>D", "<cmd>bdelete!<CR>", {})
+vim.keymap.set("n", "<leader>q", "<cmd>qa<CR>", {})
+vim.keymap.set("n", "<leader>s", "<cmd>w<CR>", {})
 
-vim.keymap.set("n", "<leader>r" , ":noh<CR>", {})
-vim.keymap.set("n", "<leader>c" , ":set cursorcolumn!<CR>", {})
+vim.keymap.set("n", "<leader>r", "<cmd>noh<CR>", {})
+vim.keymap.set("n", "<leader>c", "<cmd>set cursorcolumn!<CR>", {})
