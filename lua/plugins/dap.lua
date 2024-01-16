@@ -21,7 +21,7 @@ return {
 
 		dap.configurations.rust = {
 			{
-				name = "Launch file",
+				name = "Debug bin",
 				type = "codelldb",
 				request = "launch",
 				showDisassembly = "never",

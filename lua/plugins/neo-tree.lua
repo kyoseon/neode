@@ -8,7 +8,7 @@ return {
 	},
 	config = function()
 		vim.keymap.set("n", "<leader>ff", "<cmd>Neotree filesystem<CR>", {})
-		vim.keymap.set("n", "<leader>fg", "<cmd>Neotree git_status<CR>", {})
+		vim.keymap.set("n", "<leader>fg", "<cmd>Neotree float git_status<CR>", {})
 		vim.keymap.set("n", "<leader>fb", "<cmd>Neotree float buffers<CR>", {})
 		vim.keymap.set("n", "<leader>fc", "<cmd>Neotree close<CR>", {})
 

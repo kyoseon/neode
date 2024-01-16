@@ -38,7 +38,7 @@ return {
 		})
 		vim.wo.concealcursor = "nv"
 
-		vim.keymap.set("n", "<leader>oi", '<cmd>Neorg workspace ', {})
+		vim.keymap.set("n", "<leader>oi", ':Neorg workspace ', {})
 		vim.keymap.set("n", "<leader>ot", '<cmd>Neorg toggle-concealer<CR>', {})
 
 		vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
