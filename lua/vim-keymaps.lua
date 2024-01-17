@@ -7,5 +7,6 @@ vim.keymap.set("n", "<leader>D", "<cmd>bdelete!<CR>", {})
 vim.keymap.set("n", "<leader>q", "<cmd>qa<CR>", {})
 vim.keymap.set("n", "<leader>s", "<cmd>w<CR>", {})
 
+vim.keymap.set("n", "<leader>w", "<cmd>set wrap!<CR>", {})
 vim.keymap.set("n", "<leader>r", "<cmd>noh<CR>", {})
 vim.keymap.set("n", "<leader>c", "<cmd>set cursorcolumn!<CR>", {})

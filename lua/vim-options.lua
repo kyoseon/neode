@@ -7,6 +7,7 @@ vim.opt.cursorline = true
 vim.opt.expandtab = false
 vim.opt.timeoutlen = 1000
 vim.opt.ttimeoutlen = 0
+vim.opt.wrap = false
 
 vim.opt.list = true
 vim.opt.listchars = {
